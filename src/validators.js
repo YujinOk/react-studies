@@ -1,18 +1,18 @@
-const checkEmail = (email) => {
+export function checkEmail(email) {
   const errors = [];
 
   if (email.length === 0) {
-    errors.push("Requried");
+    errors.push("Required");
   }
 
-  if (!email.endsWith("@gmail.com")) {
-    errors.push("Must end with @gmail.com");
+  if (!email.endsWith("@webdevsimplified.com")) {
+    errors.push("Must end with @webdevsimplified.com");
   }
-  console.log(errors);
+
   return errors;
-};
+}
 
-const checkPassword = (password) => {
+export function checkPassword(password) {
   const errors = [];
 
   if (password.length < 10) {
@@ -30,7 +30,16 @@ const checkPassword = (password) => {
   if (!password.match(/[0-9]/)) {
     errors.push("Must include at least 1 number");
   }
-  return errors;
-};
 
-export { checkEmail, checkPassword };
+  return errors;
+}
+
+export function checkCountry(country = "") {
+  const errors = [];
+
+  if (country === "") {
+    errors.push("Required");
+  }
+
+  return errors;
+}

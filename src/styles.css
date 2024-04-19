@@ -16,14 +16,15 @@
   font-size: 0.8em;
 }
 
-/* .input {
+.input {
   all: unset;
   border: 0.05em solid black;
   border-radius: 0.25em;
   padding: 0.25em 0.5em;
-} */
+}
 
-.form-group .error .input {
+.form-group.error .input,
+.form-group.error .react-select__control {
   border-color: hsl(0, 100%, 70%);
   color: hsl(0, 100%, 70%);
   background: hsl(0, 100%, 95%);
