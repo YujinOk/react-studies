@@ -7,6 +7,7 @@ const StateForm = () => {
   // const [emailErrors, setEmailErrors] = useState([]);
   // const [passwordErrors, setPasswordErrors] = useState([]);
   const [isAfterFirstSubmit, setIsAfterFirstSubmit] = useState(false);
+
   const emailErrors = useMemo(() => {
     return isAfterFirstSubmit ? checkEmail(email) : [];
   }, [isAfterFirstSubmit, email]);
