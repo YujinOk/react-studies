@@ -1,21 +1,27 @@
 import "./styles.css";
-// import RefForm from "./RefForm";
-// import useFetch from "./useFetch";
-// import StateForm from "./StateForm";
-// import Counter from "./Counter";
-import ToDoList from "./ToDoList";
+import Child from "./Child";
+import { createContext, useEffect, useState } from "react";
+
+export const ThemeContext = createContext();
+
 function App() {
-  // const { data, isLoading, isError } = useFetch(
-  //   "https://dummyjson.com/RESOURCE/?delay=1000"
-  // );
-  // console.log(data);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const toggleTheme = () => {
+    setIsDarkMode((d) => !d);
+  };
+
+  useEffect(() => {
+    document.body.style.background = isDarkMode ? "#333" : "white";
+    document.body.style.color = isDarkMode ? "white" : "#333";
+  }, [isDarkMode]);
   return (
-    <>
-      <ToDoList />
-      {/* <RefForm /> */}
-      {/* <StateForm /> */}
-      {/* <Counter /> */}
-    </>
+    <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
+      <Child />
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident id
+        aliquem ae{" "}
+      </p>
+    </ThemeContext.Provider>
   );
 }
 
